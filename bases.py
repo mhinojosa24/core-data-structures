@@ -48,7 +48,9 @@ def encode(number, base):
     all_characters = string.printable
     result = ''
 
-
+    if number == 0:
+        return '0'
+        
     while number is not 0:
         remainder = number % base
         quotient = number // base
