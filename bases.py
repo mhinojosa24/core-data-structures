@@ -62,7 +62,7 @@ def encode(number, base):
             result += str(remainder)
             number = quotient
     print('converted number to base{} => {} '.format(base, result[::-1]))
-    return 'converted number to base{} => {} '.format(base, result[::-1])
+    return result[::-1]
 
 
 
@@ -77,14 +77,11 @@ def convert(digits, base1, base2):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
-    # TODO: Convert digits from base 2 to base 16 (and vice versa)
-    #
-    # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 10 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from any base to any base (2 up to 36)
-    # ...
+
+    decoded_num = decode(digits, base1)
+    return encode(decoded_num, base2)
+
+
 
 
 def main():
