@@ -1,22 +1,45 @@
 import string
 
-number = 56
-alphabet = string.printable
-base =  19
-result = ''
+number = '235'
+alphabet = string.ascii_lowercase
+digits = '235'
+base =  8
+# result = ''
+#
+#
+# # alphabet = string.ascii_lowercase
+# # digits = digits.lower()
+# exponent = len(digits) - 1
+# print('expo =>', exponent)
+# num_result = 0
+#
+# for digit in digits:
+#     if digit not in alphabet: # check if digit is not a letter
+#         num_result += (base ** exponent) * int(digit)
+#         print('num result => ', num_result)
+#         exponent -= 1
+#         print('expo =>', exponent)
+#     else:
+#         hex_to_digit = ord(digit) - 87 # get ordinal number of that character from ascii chart
+#         digit = hex_to_digit
+#         num_result += (base ** exponent) * int(digit)
+#         exponent -= 1
+#         print('expo =>', exponent)
+# print(num_result)
 
 
-while number is not 0:
-    remainder = number % base
-    quotient = number // base
 
-    if remainder > 9:
-        remainder = alphabet[remainder]
-        # print(remainder)
-        result += str(remainder)
-        number = quotient
-    else:
-        result += str(remainder)
-        number = quotient
-    print(result)
-print(result[::-1])
+reversed_digits = str(digits[::-1].lower())
+conversion_values = string.printable
+if base == 64:
+    conversion_values = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+answer = 0
+for index, given_value in enumerate(reversed_digits):
+    print('index => {}, given value => {}'.format(index, given_value))
+    print('index of conversion string =>', conversion_values.index(given_value))
+    answer += conversion_values.index(given_value)*(base**index)
+    print('answer => ', answer)
+# if answer == 0:
+#     return 0
+# else:
+#     return answer

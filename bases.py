@@ -20,18 +20,21 @@ def decode(digits, base):
     alphabet = string.ascii_lowercase
     digits = digits.lower()
     exponent = len(digits) - 1
-    result = 0
+    num_result = 0
+    hex_letter_offset = 87
 
     for digit in digits:
-        if digit not in alphabet: # 0-9
-            result += (base ** exponent) * int(digit)
-            exponent -= 1
+        if digit.isnumeric():
+            digit_value = int(digit)
+
+        elif digit in alphabet:
+            digit_value = ord(digit) - hex_letter_offset  # get ordinal number of that character from ascii chart
+
         else:
-            hex_to_digit = ord(digit) - 87
-            digit = hex_to_digit
-            result += (base ** exponent) * int(digit)
-            exponent -= 1
-    return result
+            raise ValueError('Opps! you entered a weird character')
+        num_result += (base ** exponent) * digit_value
+        exponent -= 1
+    return num_result
 
 
 
@@ -46,25 +49,24 @@ def encode(number, base):
     assert number >= 0, 'number is negative: {}'.format(number)
 
     all_characters = string.printable
-    result = ''
+    str_result = ''
 
     if number == 0:
         return '0'
-        
+
     while number is not 0:
         remainder = number % base
         quotient = number // base
 
         if remainder > 9:
             remainder = all_characters[remainder]
-            # print(remainder)
-            result += str(remainder)
+            str_result += str(remainder)
             number = quotient
         else:
-            result += str(remainder)
+            str_result += str(remainder)
             number = quotient
-    print('converted number to base{} => {} '.format(base, result[::-1]))
-    return result[::-1]
+    print('converted number to base{} => {} '.format(base, str_result[::-1]))
+    return str_result[::-1]
 
 
 
