@@ -29,17 +29,7 @@ base =  8
 
 
 
-reversed_digits = str(digits[::-1].lower())
-conversion_values = string.printable
-if base == 64:
-    conversion_values = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-answer = 0
-for index, given_value in enumerate(reversed_digits):
-    print('index => {}, given value => {}'.format(index, given_value))
-    print('index of conversion string =>', conversion_values.index(given_value))
-    answer += conversion_values.index(given_value)*(base**index)
-    print('answer => ', answer)
-# if answer == 0:
-#     return 0
-# else:
-#     return answer
+my_list = ['max', 'sara', 'jenny', 'isaiah']
+my_list.sort()
+minus_first = my_list[:-1]
+print(minus_first)
