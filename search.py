@@ -34,47 +34,41 @@ def binary_search(array, item):
 
 
 def binary_search_iterative(array, item):
-    # TODO: implement binary search iteratively here
-    # once implemented, change binary_search to call binary_search_iterative
-    # to verify that your iterative implementation passes all tests
 
-    low_index = 0
-    high_index = len(array) -1
+    low_bound = 0
+    high_bound = len(array) -1
     # use while loop to go through the whole array
-    while low_index <= high_index:
-        middle_index = (low_index + high_index) // 2
-        if array[middle_index] == item:
-            return middle_index # return index where item is found
+    while low_bound <= high_bound:
+        middle_bound = (low_bound + high_bound) // 2
+        if array[middle_bound] == item:
+            return middle_bound # return index where item is found
 
         # check if the middle index item is greater than the item to look for
-        # shift the high index of array
-        if array[middle_index] > item:
-            high_index = middle_index - 1
+        if array[middle_bound] > item:
+            high_bound = middle_bound - 1 # shift the high index of array
 
         # check if the middle index item is less than the item to look for
-        # shift the low index of array
-        if array[middle_index] < item:
-            low_index = middle_index + 1
+        if array[middle_bound] < item:
+            low_bound = middle_bound + 1 # shift the low index of array
 
     return None # Not found
 
-def binary_search_recursive(array, item, left=0, right=None):
-    # TODO: implement binary search recursively here
-    # once implemented, change binary_search to call binary_search_recursive
-    # to verify that your recursive implementation passes all tests
+def binary_search_recursive(array, item, left=None, right=None):
 
-    if right is None:
-        right = len(array) - 1
+    if left is None and right is None:
+        left, right = 0, len(array) - 1
 
     if left > right:
         return None
 
-    middle_index = (left + right) // 2
-    if array[middle_index] == item:
-        return middle_index # return index where item is found
+    middle_bound = (left + right) // 2
+    if array[middle_bound] == item:
+        return middle_bound # return index where item is found
 
-    elif array[middle_index] > item:
-        return binary_search_recursive(array, item, left, middle_index -1)
+    elif array[middle_bound] > item:
+        right = middle_bound - 1
+        return binary_search_recursive(array, item, left, right)
 
-    elif array[middle_index] < item:
-        return binary_search_recursive(array, item, middle_index + 1, right)
+    elif array[middle_bound] < item:
+        left = middle_bound + 1
+        return binary_search_recursive(array, item, left, right)
