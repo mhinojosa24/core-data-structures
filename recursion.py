@@ -10,26 +10,23 @@ def factorial(n):
     # return factorial_recursive(n)
 
 
-def factorial_iterative(n):
-    # TODO: implement the factorial function iteratively here
-    # once implemented, change factorial (above) to call factorial_iterative
-    # to verify that your iterative implementation passes all tests
-    
+def factorial_iterative(num):
+
     product = 1
-    while n > 0:
-        product *= n
-        n -= 1
+    while num > 0:
+        product *= num
+        num -= 1
     return product
 
 
-def factorial_recursive(n):
+def factorial_recursive(num):
     # check if n is one of the base cases
-    if n == 0 or n == 1:
+    if num == 0 or num == 1:
         return 1
     # check if n is an integer larger than the base cases
-    elif n > 1:
+    elif num > 1:
         # call function recursively
-        return n * factorial_recursive(n - 1)
+        return num * factorial_recursive(num - 1)
 
 
 def main():

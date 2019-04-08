@@ -15,17 +15,14 @@ def linear_search_iterative(array, item):
 
 
 def linear_search_recursive(array, item, index=0):
-    # TODO: implement linear search recursively here
-    # once implemented, change linear_search to call linear_search_recursive
-    # to verify that your recursive implementation passes all tests
 
-    # TODO: base case
+    # base case
     if array[index] == item:
         return index
     elif item not in array:
         return None
 
-    # TODO: recursive case
+    # recursive case
     return linear_search_recursive(array, item, index + 1)
 
 def binary_search(array, item):
@@ -43,7 +40,7 @@ def binary_search_iterative(array, item):
 
     low_index = 0
     high_index = len(array) -1
-    # use while loop to get middle index
+    # use while loop to go through the whole array
     while low_index <= high_index:
         middle_index = (low_index + high_index) // 2
         if array[middle_index] == item:
