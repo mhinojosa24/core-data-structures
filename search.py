@@ -37,7 +37,7 @@ def binary_search_iterative(array, item):
     '''
 
     low_bound = 0
-    high_bound = len(array) -1
+    high_bound = len(array) - 1
     # use while loop to go through the whole array
     while low_bound <= high_bound:
         middle_bound = (low_bound + high_bound) // 2

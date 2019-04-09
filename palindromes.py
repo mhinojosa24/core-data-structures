@@ -1,4 +1,5 @@
 import string
+import re
 # Hint: Use these string constants to ignore capitalization and/or punctuation
 # string.ascii_lowercase is 'abcdefghijklmnopqrstuvwxyz'
 # string.ascii_uppercase is 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -11,23 +12,41 @@ def is_palindrome(text):
     # implement is_palindrome_iterative and is_palindrome_recursive below, then
     # change this to call your implementation to verify it passes all tests
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
-    return is_palindrome_iterative(text)
-    # return is_palindrome_recursive(text)
+    # return is_palindrome_iterative(text)
+    return is_palindrome_recursive(text)
 
 
 def is_palindrome_iterative(text):
-    # TODO: implement the is_palindrome function iteratively here
-    pass
-    # once implemented, change is_palindrome to call is_palindrome_iterative
-    # to verify that your iterative implementation passes all tests
+    text = re.sub('[^A-Za-z0-9]+', '', text.lower())
+    start_index = 0
+    end_index = len(text) - 1
+
+    while start_index <= end_index:
+        if text[start_index] != text[end_index]:
+            return False
+        start_index += 1
+        end_index -= 1
+    return True
 
 
 def is_palindrome_recursive(text, left=None, right=None):
-    # TODO: implement the is_palindrome function recursively here
-    pass
-    # once implemented, change is_palindrome to call is_palindrome_recursive
-    # to verify that your iterative implementation passes all tests
+    text = re.sub('[^A-Za-z0-9]+', '', text.lower())
+    if text == '':
+        return True
 
+    if left is None and right is None:
+        left, right = 0, len(text) - 1
+
+
+    if text[left] != text[right]:
+        return False
+
+    else:
+        left += 1
+        right -= 1
+        if left > right:
+            return True
+        return is_palindrome_recursive(text, left, right)
 
 def main():
     import sys
