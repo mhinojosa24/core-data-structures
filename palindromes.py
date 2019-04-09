@@ -37,7 +37,6 @@ def is_palindrome_recursive(text, left=None, right=None):
     if left is None and right is None:
         left, right = 0, len(text) - 1
 
-
     if text[left] != text[right]:
         return False
 
