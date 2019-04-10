@@ -7,10 +7,22 @@ def contains(text, pattern):
     # return contains_recursively(text, pattern)
 
 def contains_iterative(text, pattern):
-    if pattern in text:
-        return True
-    return False
+    counter_sub = 0
+    counter_main = 0
 
+    if pattern == '' or text == pattern:
+        return True
+
+    while counter_main < len(text):
+        if text[counter_main] == pattern[counter_sub]:
+            if counter_sub == len(pattern) - 1:
+                return True
+            counter_sub += 1
+        else:
+            counter_main -= counter_sub
+            counter_sub = 0
+        counter_main += 1
+    return False
 
 def find_index(text, pattern):
     """Return the starting index of the first occurrence of pattern in text,
