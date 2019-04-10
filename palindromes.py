@@ -10,30 +10,42 @@ def is_palindrome(text):
     """A string of characters is a palindrome if it reads the same forwards and
     backwards, ignoring punctuation, whitespace, and letter casing."""
     assert isinstance(text, str), 'input is not a string: {}'.format(text)
-    return is_palindrome_iterative(text)
-    # return is_palindrome_recursive(text)
+    # return is_palindrome_iterative(text)
+    return is_palindrome_recursive(text)
 
 
 def is_palindrome_iterative(text):
-    text = text.isalnum() # removes all special characters and lowercase each letters
-    start_index = 0
-    end_index = len(text) - 1
+    left = 0
+    right = len(text) - 1
 
-    while start_index <= end_index:
-        if text[start_index] != text[end_index]:
+    while left <= right:
+        if not text[left].isalpha(): # checks if the character is not a letter
+            left += 1
+            continue
+
+        if not text[right].isalpha(): # checks if the character is not a letter
+            right -= 1
+            continue
+
+        if text[left].lower() != text[right].lower():
             return False
-        start_index += 1
-        end_index -= 1
+        left += 1
+        right -= 1
     return True
 
 
 def is_palindrome_recursive(text, left=None, right=None):
-    text = re.sub('[^A-Za-z0-9]+', '', text.lower())
     if text == '':
         return True
 
     if left is None and right is None:
         left, right = 0, len(text) - 1
+
+    if not text[left].isalpha(): # checks if the character is not a letter
+        left += 1 # skip special character
+
+    if not text[right].isalpha(): # checks if the character is not a letter
+        right -= 1 # skip special character
 
     if text[left] != text[right]:
         return False

@@ -2,26 +2,24 @@ def contains(text, pattern):
     """Return a boolean indicating whether pattern occurs in text."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement contains here (iteratively and/or recursively)
-    return contains_iterative(text, pattern)
-    # return contains_recursively(text, pattern)
 
-def contains_iterative(text, pattern):
-    counter_sub = 0
-    counter_main = 0
+    txt_index = 0 # keeps track of each character position in text
+    pat_index = 0 # keeps track of each character position in pattern
 
+    # edge case for empty string or if the pattern matches the text
     if pattern == '' or text == pattern:
         return True
 
-    while counter_main < len(text):
-        if text[counter_main] == pattern[counter_sub]:
-            if counter_sub == len(pattern) - 1:
+    # once the text index is the same as the length of text, this will stop
+    while txt_index != len(text):
+        if text[txt_index] == pattern[pat_index]:
+            if pat_index == len(pattern) - 1:
                 return True
-            counter_sub += 1
+            pat_index += 1
         else:
-            counter_main -= counter_sub
-            counter_sub = 0
-        counter_main += 1
+            txt_index -= pat_index
+            pat_index = 0
+        txt_index += 1
     return False
 
 def find_index(text, pattern):
@@ -29,22 +27,24 @@ def find_index(text, pattern):
     or None if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement find_index here (iteratively and/or recursively)
-    counter_sub = 0
-    counter_main = 0
 
+    txt_index = 0 # keeps track of each character position in text
+    pat_index = 0 # keeps track of each character position in pattern
+
+    # edge case for empty string
     if pattern == '' or text == pattern:
         return 0
 
-    while counter_main < len(text):
-        if text[counter_main] == pattern[counter_sub]:
-            if counter_sub == len(pattern) - 1:
-                return counter_main - counter_sub
-            counter_sub += 1
+    # once the text index is the same as the length of text, this will stop
+    while txt_index != len(text):
+        if text[txt_index] == pattern[pat_index]: # checks if both characters are the same
+            if pat_index == len(pattern) - 1: # found valid pattern
+                return txt_index - pat_index # returns the starting position of the pattern
+            pat_index += 1
         else:
-            counter_main -= counter_sub
-            counter_sub = 0
-        counter_main += 1
+            txt_index -= pat_index
+            pat_index = 0
+        txt_index += 1
 
 
 def find_all_indexes(text, pattern):
@@ -52,8 +52,33 @@ def find_all_indexes(text, pattern):
     or an empty list if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+    txt_index = 0 # keeps track of each character position in text
+    pat_index = 0 # keeps track of each character position in pattern
+    result = []
 
+    # edge case for empty string pattern
+    if pattern == '':
+        for index in range(len(text)):
+            result.append(index)
+        return result
+
+    # edge case for singular pattern
+    for index, letter in enumerate(text):
+        if text[index] == pattern:
+            result.append(index)
+    return result
+
+    # once the text index is the same as the length of text, this will stop
+    while txt_index != len(text):
+        if text[txt_index] == pattern[pat_index]:
+            if pat_index == len(pattern) - 1: # once the current pattern index equals the length of pattern, you have officially found a valid pattern
+                result.append(txt_index - pat_index) # save / append the start of pattern
+            pat_index += 1
+        else:
+            txt_index -= pat_index # restart index to 0
+            pat_index = 0 # restart index to 0
+        txt_index += 1 # shift index to next
+    return result
 
 def test_string_algorithms(text, pattern):
     found = contains(text, pattern)
