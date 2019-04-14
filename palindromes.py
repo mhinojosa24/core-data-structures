@@ -27,7 +27,7 @@ def is_palindrome_iterative(text):
             right -= 1
             continue
 
-        if text[left].lower() != text[right].lower():
+        if text[left].lower() != text[right].lower(): # checks if
             return False
         left += 1
         right -= 1
