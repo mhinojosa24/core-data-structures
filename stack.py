@@ -18,7 +18,6 @@ class LinkedStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        # TODO: Check if empty
         return self.list.is_empty()
 
     def length(self):
@@ -41,7 +40,6 @@ class LinkedStack(object):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
         Running time: O(???) – Why? [TODO]"""
-        # TODO: Remove and return top item, if any
         if self.list.is_empty() == True:
             raise ValueError('List is empty')
         else:
@@ -67,30 +65,37 @@ class ArrayStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
-        return self.is_empty()
+        return len(self.list) == 0
 
     def length(self):
         """Return the number of items in this stack."""
-        return self.length()
+        return len(self.list)
 
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
-        # TODO: Insert given item
+        self.list.insert(0, item)
+
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        # TODO: Return top item, if any
+        if len(self.list) != 0:
+            return self.list[0]
+        return None
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
         Running time: O(???) – Why? [TODO]"""
-        # TODO: Remove and return top item, if any
-
+        if len(self.list) > 0:
+            value = self.list[0]
+            del self.list[0]
+        else:
+            raise ValueError('Oops the list is empty')
+        return value
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
 # to use each of your Stack implementations to verify they each pass all tests
-Stack = LinkedStack
-# Stack = ArrayStack
+# Stack = LinkedStack
+Stack = ArrayStack
