@@ -254,6 +254,7 @@ def test_linked_list():
     print('tail: {}'.format(ll.tail))
     print('size: {}'.format(ll.size))
     print('length: {}'.format(ll.length()))
+    print('empty?: {}'.format(ll.is_empty()))
 
     print('Getting items by index:')
     for index in range(ll.size):
@@ -271,6 +272,7 @@ def test_linked_list():
     print('tail: {}'.format(ll.tail))
     print('size: {}'.format(ll.size))
     print('length: {}'.format(ll.length()))
+    print('empty?: {}'.format(ll.is_empty()))
 
 
 if __name__ == '__main__':
