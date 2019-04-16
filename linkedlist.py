@@ -182,15 +182,13 @@ class LinkedList(object):
             self.tail.data = new_item
             return
 
-        old_item = self.head
-        while old_item is not None:
-            old_item
-
-
-
-
-
-
+        node = self.head
+        while node is not None:
+            if node.data == old_item:
+                node.data = new_item
+                return
+            node = node.next
+        raise ValueError('Oops this item was not found.'.format(new_item))
 
 
     def delete(self, item):
