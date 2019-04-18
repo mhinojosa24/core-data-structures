@@ -1,7 +1,6 @@
 from linkedlist import LinkedList
 
-# Implement LinkedStack below, then change the assignment at the bottom
-# to use this Stack implementation to verify it passes all tests
+
 class LinkedStack(object):
 
     def __init__(self, iterable=None):
@@ -26,7 +25,7 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1)"""
         self.list.prepend(item)
 
     def peek(self):
@@ -39,7 +38,7 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1)"""
         if self.list.is_empty() == True:
             raise ValueError('List is empty')
         else:
@@ -74,14 +73,14 @@ class ArrayStack(object):
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
-        self.list.insert(0, item)
+        self.list.append(item)
 
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
         if len(self.list) != 0:
-            return self.list[0]
+            return self.list[-1]
         return None
 
     def pop(self):
@@ -89,8 +88,8 @@ class ArrayStack(object):
         or raise ValueError if this stack is empty.
         Running time: O(???) – Why? [TODO]"""
         if len(self.list) > 0:
-            value = self.list[0]
-            del self.list[0]
+            value = self.list[-1]
+            del self.list[-1]
         else:
             raise ValueError('Oops the list is empty')
         return value
