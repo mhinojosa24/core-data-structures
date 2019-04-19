@@ -2,6 +2,7 @@ def contains(text, pattern):
     """Return a boolean indicating whether pattern occurs in text."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
+    # time complexity: O(n) => goes through each character in string
 
     txt_index = 0 # keeps track of each character position in text
     pat_index = 0 # keeps track of each character position in pattern
@@ -27,6 +28,7 @@ def find_index(text, pattern):
     or None if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
+    # time complexity: O(n) => goes through each character in string
 
     txt_index = 0 # keeps track of each character position in text
     pat_index = 0 # keeps track of each character position in pattern
@@ -55,6 +57,7 @@ def find_all_indexes(text, pattern):
     txt_index = 0 # keeps track of each character position in text
     pat_index = 0 # keeps track of each character position in pattern
     result = []
+    # time complexity: O(n) => goes through each character in string
 
     # edge case for empty string pattern
     if len(pattern) == 0:
