@@ -49,7 +49,6 @@ def find_all_indexes(text, pattern):
     # Time complexity: O(n) => goes through each character in string
     # Space complexity: O(1) => appends to array for each found pattern
 
-
     return find_pattern(text, pattern) # returns the beginning of each pattern in array
 
 def test_string_algorithms(text, pattern):
