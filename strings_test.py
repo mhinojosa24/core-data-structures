@@ -18,6 +18,7 @@ class StringsTest(unittest.TestCase):
         # TODO: Write more positive test cases with assert is True statements
         # ...
 
+
     def test_contains_with_non_matching_patterns(self):
         # Negative test cases (counterexamples) with non-matching patterns
         assert contains('abc', 'z') is False  # remember to test other letters
