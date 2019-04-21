@@ -30,14 +30,15 @@ def find_index(text, pattern):
     or None if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # time complexity: O(n) => goes through each character in string
+    # Time complexity: O(n) => goes through each character in string
+    # Space complexity: O(1) => appends to array for each found pattern
 
-    result = find_pattern(text, pattern)
+    result = find_pattern(text, pattern)# returns the beginning of each pattern in array
 
     if result == []:
         return None
     else:
-        return result[0]
+        return result[0] # return the first found pattern
 
 
 def find_all_indexes(text, pattern):
@@ -45,9 +46,11 @@ def find_all_indexes(text, pattern):
     or an empty list if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # time complexity: O(n) => goes through each character in string
+    # Time complexity: O(n) => goes through each character in string
+    # Space complexity: O(1) => appends to array for each found pattern
 
-    return find_pattern(text, pattern)
+
+    return find_pattern(text, pattern) # returns the beginning of each pattern in array
 
 def test_string_algorithms(text, pattern):
     found = contains(text, pattern)
