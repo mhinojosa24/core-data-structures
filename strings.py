@@ -32,7 +32,6 @@ def find_index(text, pattern):
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # Time complexity: O(n) => goes through each character in string
     # Space complexity: O(1) => appends to array for each found pattern
-
     result = find_pattern(text, pattern)# returns the beginning of each pattern in array
 
     if result == []:
