@@ -24,7 +24,7 @@ class HashTable(object):
     def load_factor(self):
         """Return the load factor, the ratio of number of entries to buckets.
         Best and worst case running time: """
-        return self.size / len(self.buckets)
+        return float(self.size) / len(self.buckets)
 
 
     def keys(self):
@@ -131,8 +131,8 @@ class HashTable(object):
             self.size -= 1
         else:  # Not found
             raise KeyError('Key not found: {}'.format(key))
-        if self.load_factor() < 0.25:
-            self._resize()
+        # if self.load_factor() < 0.25:
+        #     self._resize(0)
 
     def _resize(self, new_size=None):
         """Resize this hash table's buckets and rehash all key-value entries.
@@ -146,7 +146,7 @@ class HashTable(object):
         # Option to reduce size if buckets are sparsely filled (low load factor)
         elif new_size is 0:
             new_size = len(self.buckets) / 2  # Half size
-            
+
         current_entries = self.items()
         self.buckets = [LinkedList() for i in range(int(new_size))]
         self.size = 0
