@@ -89,6 +89,7 @@ class HashTable(object):
         entry = bucket.find(lambda key_value: key_value[0] == key)
         if entry is not None:  # Found
             # Return the given key's associated value
+
             assert isinstance(entry, tuple)
             assert len(entry) == 2
             return entry[1]
@@ -131,8 +132,8 @@ class HashTable(object):
             self.size -= 1
         else:  # Not found
             raise KeyError('Key not found: {}'.format(key))
-        # if self.load_factor() < 0.25:
-        #     self._resize(0)
+        if self.load_factor() < 0.25:
+            self._resize(0)
 
     def _resize(self, new_size=None):
         """Resize this hash table's buckets and rehash all key-value entries.

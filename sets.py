@@ -3,20 +3,23 @@ from hashtable import HashTable
 class Set(object):
 
     def __init__(self, elements=None):
-        self.set = HashTable()
-        self.size = 0
+        self.hash_set = HashTable()
+
+        if elements is not None:
+            for element in elements:
+                self.add(element)
 
     def contains(self, element):
         """ return a boolean indicating whether element is in this set """
-        pass
+        return self.hash_set.contains(element)
 
     def add(self, element):
         """ add element to this set, if not present already """
-        pass
+        return self.hash_set.set(element, value=None)
 
     def remove(self, element):
         """ remove element from this set, if present, or else raise KeyError """
-        pass
+        self.hash_set.delete(element)
 
     def union(self, other_set):
         """ return a new set that is the union of this set and other_set """
