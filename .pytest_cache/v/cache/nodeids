@@ -1,6 +1,9 @@
 [
   "sets_test.py::TestSets::test_add_and_remove",
   "sets_test.py::TestSets::test_contains",
+  "sets_test.py::TestSets::test_difference",
   "sets_test.py::TestSets::test_init",
-  "sets_test.py::TestSets::test_size"
+  "sets_test.py::TestSets::test_intersection",
+  "sets_test.py::TestSets::test_size",
+  "sets_test.py::TestSets::test_union"
 ]
