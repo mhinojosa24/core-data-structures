@@ -63,9 +63,14 @@ class Set(object):
 
     def is_subset(self, other_set):
         """ return a boolean indicating whether other_set is a subset of this set """
-        is_subset = False
 
-        
+        for element in other_set.hash_set.keys():
+            if self.contains(element):
+                return True
+
+        return False
+
+
 
 
 

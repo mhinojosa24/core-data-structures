@@ -129,8 +129,18 @@ class TestSets(unittest.TestCase):
         s = Set(['A', 'B', 'C', 'D'])
         o_s = Set(['A', 'C', 'D'])
         n_s = s.is_subset(o_s)
+        assert n_s == True
 
-        self.assertCountEqual(n_s.hash_set.keys(), [])
+        s_2 = Set(['A', 'B', 'C', 'D'])
+        o_s_2 = Set(['F', 'G', 'L'])
+        n_s_2 = s_2.is_subset(o_s_2)
+        assert n_s_2 == False
+
+        s_3 = Set(['A', 'B', 'C', 'D'])
+        o_s_3 = Set(['F', 'B', 'L'])
+        n_s_3 = s_3.is_subset(o_s_3)
+        assert n_s_3 == True
+
 
 if __name__ == '__main__':
     unittest.main()
