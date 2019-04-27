@@ -125,5 +125,12 @@ class TestSets(unittest.TestCase):
         self.assertCountEqual(n_s_2.hash_set.keys(), [2, 4])
         assert n_s_2.hash_set.size == 2
 
+    def is_subset(self):
+        s = Set(['A', 'B', 'C', 'D'])
+        o_s = Set(['A', 'C', 'D'])
+        n_s = s.is_subset(o_s)
+
+        self.assertCountEqual(n_s.hash_set.keys(), [])
+
 if __name__ == '__main__':
     unittest.main()

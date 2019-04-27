@@ -62,9 +62,12 @@ class Set(object):
         return new_set
 
     def is_subset(self, other_set):
-        """ return a boolean
-        indicating whether other_set is a subset of this set """
-        pass
+        """ return a boolean indicating whether other_set is a subset of this set """
+        is_subset = False
+
+        
+
+
 
 def test_set():
     s = Set()
