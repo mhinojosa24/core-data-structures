@@ -125,7 +125,7 @@ class TestSets(unittest.TestCase):
         self.assertCountEqual(n_s_2.hash_set.keys(), [2, 4])
         assert n_s_2.hash_set.size == 2
 
-    def is_subset(self):
+    def test_is_subset(self):
         s = Set(['A', 'B', 'C', 'D'])
         o_s = Set(['A', 'C', 'D'])
         n_s = s.is_subset(o_s)
@@ -141,6 +141,21 @@ class TestSets(unittest.TestCase):
         n_s_3 = s_3.is_subset(o_s_3)
         assert n_s_3 == True
 
+    def test_is_proper_subset(other_set):
+        s = Set(['A', 'B', 'C', 'D'])
+        o_s = Set(['F', 'G', 'L'])
+        n_s = s.is_proper_subset(o_s)
+        assert n_s == False
+
+        s_2 = Set(['A', 'B', 'C', 'D'])
+        o_s_2 = Set(['P', 'G', 'L', 'D'])
+        n_s_2 = s_2.is_proper_subset(o_s_2)
+        assert n_s_2 == False
+
+        s_3 = Set(['A', 'B', 'C', 'D'])
+        o_s_3 = Set(['P', 'G', 'D'])
+        n_s_3 = s_3.is_proper_subset(o_s_3)
+        assert n_s_3 == True
 
 if __name__ == '__main__':
     unittest.main()

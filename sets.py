@@ -70,9 +70,12 @@ class Set(object):
 
         return False
 
+    def is_proper_subset(self, other_set):
+        """ return a boolean indicating whether other_set is a proper subset of this set """
 
-
-
+        if self.is_subset(other_set) == True and other_set.hash_set.size < self.hash_set.size:
+            return True
+        return False
 
 def test_set():
     s = Set()
@@ -87,6 +90,9 @@ def test_set():
     new_set = set.union(other_set)
     print('size: {}'.format(new_set.hash_set.size))
 
+    s_1 = Set(['A', 'B', 'C', 'D', 'E'])
+    o_s = Set(['B', 'T', 'H', 'J', 'P', 'O'])
+    print('size of set 2: {}'.format(s_1.is_proper_subset(o_s)))
 
 if __name__ == '__main__':
     test_set()

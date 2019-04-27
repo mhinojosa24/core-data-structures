@@ -4,6 +4,8 @@
   "sets_test.py::TestSets::test_difference",
   "sets_test.py::TestSets::test_init",
   "sets_test.py::TestSets::test_intersection",
+  "sets_test.py::TestSets::test_is_proper_subset",
+  "sets_test.py::TestSets::test_is_subset",
   "sets_test.py::TestSets::test_size",
   "sets_test.py::TestSets::test_union"
 ]
