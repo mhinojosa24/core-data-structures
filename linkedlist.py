@@ -249,7 +249,7 @@ def test_linked_list():
     ll.append('B')
     print(ll)
     ll.append('C')
-    
+
     print(ll)
     print('head: {}'.format(ll.head))
     print('tail: {}'.format(ll.tail))

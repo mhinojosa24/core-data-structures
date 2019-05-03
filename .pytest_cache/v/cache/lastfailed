@@ -1,5 +1,4 @@
 {
-  "binarytree_test.py::BinarySearchTreeTest::test_init": true,
   "binarytree_test.py::BinarySearchTreeTest::test_init_with_list": true,
   "binarytree_test.py::BinarySearchTreeTest::test_init_with_list_of_strings": true,
   "binarytree_test.py::BinarySearchTreeTest::test_init_with_list_of_tuples": true,
@@ -17,9 +16,5 @@
   "binarytree_test.py::BinarySearchTreeTest::test_search_with_3_strings": true,
   "binarytree_test.py::BinarySearchTreeTest::test_search_with_7_items": true,
   "binarytree_test.py::BinarySearchTreeTest::test_search_with_7_strings": true,
-  "binarytree_test.py::BinarySearchTreeTest::test_size": true,
-  "binarytree_test.py::BinaryTreeNodeTest::test_height": true,
-  "binarytree_test.py::BinaryTreeNodeTest::test_init": true,
-  "binarytree_test.py::BinaryTreeNodeTest::test_is_branch": true,
-  "binarytree_test.py::BinaryTreeNodeTest::test_is_leaf": true
+  "binarytree_test.py::BinarySearchTreeTest::test_size": true
 }
