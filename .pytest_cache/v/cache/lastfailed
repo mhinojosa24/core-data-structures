@@ -1,1 +1,4 @@
-{}
+{
+  "binarytree_test.py::BinarySearchTreeTest": true,
+  "binarytree_test.py::BinaryTreeNodeTest": true
+}
