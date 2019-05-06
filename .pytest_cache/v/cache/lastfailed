@@ -1,4 +1,4 @@
 {
-  "binarytree_test.py::BinarySearchTreeTest": true,
-  "binarytree_test.py::BinaryTreeNodeTest": true
+  "binarytree_test.py::BinarySearchTreeTest::test_items_post_order_with_3_strings": true,
+  "binarytree_test.py::BinarySearchTreeTest::test_items_post_order_with_7_numbers": true
 }
