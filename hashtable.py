@@ -110,6 +110,7 @@ class HashTable(object):
             # In this case, the given key's value is being updated
             # Remove the old key-value entry from the bucket first
             bucket.delete(entry)
+            bucket.
         else:
             self.size += 1
         bucket.append((key, value))

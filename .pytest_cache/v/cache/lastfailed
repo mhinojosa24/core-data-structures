@@ -1,4 +1,11 @@
 {
   "binarytree_test.py::BinarySearchTreeTest::test_items_post_order_with_3_strings": true,
-  "binarytree_test.py::BinarySearchTreeTest::test_items_post_order_with_7_numbers": true
+  "binarytree_test.py::BinarySearchTreeTest::test_items_post_order_with_7_numbers": true,
+  "sets_test.py::TestSets::test_add_and_remove": true,
+  "sets_test.py::TestSets::test_contains": true,
+  "sets_test.py::TestSets::test_difference": true,
+  "sets_test.py::TestSets::test_intersection": true,
+  "sets_test.py::TestSets::test_is_proper_subset": true,
+  "sets_test.py::TestSets::test_is_subset": true,
+  "sets_test.py::TestSets::test_union": true
 }
