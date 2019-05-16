@@ -21,29 +21,33 @@ class LinkedStack(object):
 
     def length(self):
         """Return the number of items in this stack."""
+        # time complexity: O(n) n for items in a list
         return self.list.length()
 
     def push(self, item):
-        """Insert the given item on the top of this stack.
-        Running time: O(1)"""
+        """Insert the given item on the top of this stack."""
+        # time complexity: O(1) constant to add an item to list
         self.list.prepend(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
-        if self.list.is_empty() == False:
+        # time complexity: O(1) checks if there is a item in list
+
+        if self.list.is_empty() == False: # constant time to call is_empty method
             return self.list.head.data
         return None
 
     def pop(self):
         """Remove and return the item on the top of this stack,
-        or raise ValueError if this stack is empty.
-        Running time: O(1)"""
-        if self.list.is_empty() == True:
+        or raise ValueError if this stack is empty."""
+        # Running time: O(1) constant to delete item from the beginning of the list
+
+        if self.list.is_empty() == True: # constant time to call is_empty method
             raise ValueError('List is empty')
         else:
             value = self.list.head.data
-            self.list.delete(self.list.head.data)
+            self.list.delete(self.list.head.data) # constant to call delete method and delete item from list
             return value
 
 # Implement ArrayStack below, then change the assignment at the bottom
@@ -64,15 +68,21 @@ class ArrayStack(object):
 
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
+        # time complexity: O(n) n for items in list
+
         return len(self.list) == 0
 
     def length(self):
         """Return the number of items in this stack."""
+        # time complexity: O(n) n for items in list
+
         return len(self.list)
 
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(???) – Why? [TODO]"""
+        # time complexity: O(1) constant to add itme at the end of list
+
         self.list.append(item)
 
 

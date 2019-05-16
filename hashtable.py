@@ -80,8 +80,8 @@ class HashTable(object):
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time: O(1) instant check time to get bucket where item is stored
+        Worst case running time: O(n) """
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
@@ -103,6 +103,7 @@ class HashTable(object):
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
+
         # Find the entry with the given key in that bucket, if one exists
         # Check if an entry with the given key exists in that bucket
         entry = bucket.find(lambda key_value: key_value[0] == key)
@@ -110,7 +111,7 @@ class HashTable(object):
             # In this case, the given key's value is being updated
             # Remove the old key-value entry from the bucket first
             bucket.delete(entry)
-            bucket.
+
         else:
             self.size += 1
         bucket.append((key, value))

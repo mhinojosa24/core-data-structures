@@ -78,21 +78,21 @@ class TestSets(unittest.TestCase):
         o_s = Set(['K', 'T', 'R'])
         n_s = s.union(o_s)
 
-        self.assertCountEqual(n_s.list.items(), ['k', 'K', 'G', 'T', 'R'])
+        self.assertCountEqual(n_s.hashset.keys(), ['k', 'K', 'G', 'T', 'R'])
         assert n_s.size == 5
 
         s_2 = Set(['m', 'M', 'l', 'Y', 'O'])
         o_s_2 = Set(['P', 'M', 'l', 'Y'])
         n_s_2 = s_2.union(o_s_2)
 
-        self.assertCountEqual(n_s_2.list.items(), ['m', 'M', 'l', 'Y', 'O', 'P'])
+        self.assertCountEqual(n_s_2.hashset.keys(), ['m', 'M', 'l', 'Y', 'O', 'P'])
         assert n_s_2.size == 6
 
         s_3 = Set([5, 4, 5, 6, 0])
         o_s_3 = Set([6, 7, 7, 4])
         n_s_3 = s_3.union(o_s_3)
 
-        self.assertCountEqual(n_s_3.list.items(), [5, 4, 6, 0, 7])
+        self.assertCountEqual(n_s_3.hashset.keys(), [5, 4, 6, 0, 7])
         assert n_s_3.size == 5
 
     def test_intersection(self):
@@ -100,14 +100,14 @@ class TestSets(unittest.TestCase):
         o_s = Set(['P', 'I', 'T'])
         n_s = s.intersection(o_s)
 
-        self.assertCountEqual(n_s.list.items(), ['T', 'I', 'P'])
+        self.assertCountEqual(n_s.hashset.keys(), ['T', 'I', 'P'])
         assert n_s.size == 3
 
         s_2 = Set([2, 0, 0, 8])
         o_s_2 = Set([2, 8, 0])
         n_s_2 = s_2.intersection(o_s_2)
 
-        self.assertCountEqual(n_s_2.list.items(), [2, 0, 8])
+        self.assertCountEqual(n_s_2.hashset.keys(), [2, 0, 8])
         assert n_s_2.size == 3
 
     def test_difference(self):
@@ -115,14 +115,14 @@ class TestSets(unittest.TestCase):
         o_s = Set(['T', 'R', 'V', 'O'])
         n_s = s.difference(o_s)
 
-        self.assertCountEqual(n_s.list.items(), ['R', 'V'])
+        self.assertCountEqual(n_s.hashset.keys(), ['R', 'V'])
         assert n_s.size == 2
 
         s_2 = Set([1, 3, 5, 6])
         o_s_2 = Set([1, 6, 2, 4, 5])
         n_s_2 = s_2.difference(o_s_2)
 
-        self.assertCountEqual(n_s_2.list.items(), [2, 4])
+        self.assertCountEqual(n_s_2.hashset.keys(), [2, 4])
         assert n_s_2.size == 2
 
     def test_is_subset(self):

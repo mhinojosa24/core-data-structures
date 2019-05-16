@@ -29,7 +29,8 @@ class LinkedQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) adding an item at the end of the list
+         is constant time """
         # TODO: Insert given item
         self.list.append(item)
 
