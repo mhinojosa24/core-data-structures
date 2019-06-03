@@ -17,13 +17,25 @@ def decode(digits, base):
     return: int -- integer representation of number (in base 10)"""
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
-    # TODO: Decode digits from binary (base 2)
-    # ...
-    # TODO: Decode digits from hexadecimal (base 16)
-    # ...
-    # TODO: Decode digits from any base (2 up to 36)
-    # ...
 
+    alphabet = string.ascii_lowercase
+    digits = digits.lower() # if there is any characters in input; make it lowercase
+    exponent = len(digits) - 1
+    num_result = 0
+    hex_letter_offset = 87
+
+    for digit in digits:
+        if digit.isnumeric():
+            digit_value = int(digit)
+
+        elif digit in alphabet:
+            digit_value = ord(digit) - hex_letter_offset  # get ordinal number of that character from ascii chart
+
+        else:
+            raise ValueError('Opps! you entered a weird character')
+        num_result += (base ** exponent) * digit_value
+        exponent -= 1
+    return num_result
 
 def encode(number, base):
     """Encode given number in base 10 to digits in given base.
@@ -34,12 +46,28 @@ def encode(number, base):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
-    # TODO: Encode number in binary (base 2)
-    # ...
-    # TODO: Encode number in hexadecimal (base 16)
-    # ...
-    # TODO: Encode number in any base (2 up to 36)
-    # ...
+
+    all_characters = string.printable
+    print('all characters: {}', format(all_characters))
+    str_result = ''
+
+    if number == 0:
+        return '0'
+
+    while number is not 0:
+        remainder = number % base
+        quotient = number // base
+        print('remainder: {} quotient: {}'.format(remainder, quotient))
+
+        if remainder > 9:
+            remainder = all_characters[remainder]
+            str_result += str(remainder)
+            number = quotient
+        else:
+            str_result += str(remainder)
+            number = quotient
+    print('converted number to base{} => {} '.format(base, str_result[::-1]))
+    return str_result[::-1]
 
 
 def convert(digits, base1, base2):
@@ -51,14 +79,10 @@ def convert(digits, base1, base2):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base1 <= 36, 'base1 is out of range: {}'.format(base1)
     assert 2 <= base2 <= 36, 'base2 is out of range: {}'.format(base2)
-    # TODO: Convert digits from base 2 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 2 to base 10 (and vice versa)
-    # ...
-    # TODO: Convert digits from base 10 to base 16 (and vice versa)
-    # ...
-    # TODO: Convert digits from any base to any base (2 up to 36)
-    # ...
+
+    decoded_num = decode(digits, base1)
+    return encode(decoded_num, base2)
+
 
 
 def main():
