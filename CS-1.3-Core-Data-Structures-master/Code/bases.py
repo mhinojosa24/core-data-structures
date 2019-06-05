@@ -60,6 +60,7 @@ def encode(number, base):
         print('remainder: {} quotient: {}'.format(remainder, quotient))
 
         if remainder > 9:
+            print('checking here')
             remainder = all_characters[remainder]
             str_result += str(remainder)
             number = quotient
@@ -103,3 +104,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    print(decode(50, 10))

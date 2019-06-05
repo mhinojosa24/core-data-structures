@@ -61,7 +61,7 @@ def encode(number, base):
         if remainder > 9:
             remainder = all_characters[remainder]
             str_result += str(remainder)
-            number = quotient
+            number = quotient # update the current number
         else:
             str_result += str(remainder)
             number = quotient

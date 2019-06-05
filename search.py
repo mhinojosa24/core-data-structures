@@ -36,6 +36,7 @@ def binary_search_iterative(array, item):
     space: O(1)
     '''
 
+
     low_bound = 0
     high_bound = len(array) - 1
     # use while loop to go through the whole array
