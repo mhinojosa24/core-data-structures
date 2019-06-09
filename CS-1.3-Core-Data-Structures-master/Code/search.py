@@ -43,8 +43,10 @@ def binary_search_iterative(array, item):
         middle = (left + right) // 2
         if array[middle] == item:
             return middle
+
         if array[middle] > item:
             right = middle - 1
+            
         if array[middle] < item:
             left = middle + 1
     return None
