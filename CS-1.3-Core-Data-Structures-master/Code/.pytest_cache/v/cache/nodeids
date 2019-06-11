@@ -1,9 +1,3 @@
 [
-  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_mirrored_strings",
-  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_mixed_casing",
-  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_mixed_casing_and_punctuation",
-  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_non_palindromic_strings",
-  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace",
-  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace_and_mixed_casing",
-  "palindromes_test.py::TestPalindromes::test_is_palindrome_with_whitespace_and_punctuation"
+  "strings_test.py::StringsTest::test_contains_with_matching_patterns"
 ]

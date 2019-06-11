@@ -15,18 +15,18 @@ def is_palindrome(text):
 
 
 def is_palindrome_iterative(text):
-    # Time: O(n)
+    # Time: O(n/2)
     # Space: O(1)
 
     left = 0
     right = len(text) - 1
 
     while left <= right:
-        if not text[left].isalpha() and text[left] != '': # checks if the character is not in the alphabet
+        if not text[left].isalpha(): # checks if the character is not in the alphabet
             left += 1 # skips character
             continue
 
-        if not text[right].isalpha() and text[right] != '': # checks if the character is not in the alphabet
+        if not text[right].isalpha(): # checks if the character is not in the alphabet
             right -= 1 # skips character
             continue
 
@@ -38,8 +38,8 @@ def is_palindrome_iterative(text):
 
 
 def is_palindrome_recursive(text, left=None, right=None):
-    
-    #Time: O(n)
+
+    #best time: O(1), worst case: O(n)
     #Space: O(1)
 
     if text == '':
@@ -51,16 +51,17 @@ def is_palindrome_recursive(text, left=None, right=None):
     if left > right: # you successfully iterated through the text
         return True # text is a palindrome return True
 
-    if not text[left].isalpha() and text[left] != '': # checks if the character is not a letter
-        return is_palindrome_recursive(text, left + 1, right) # skip special character
+    else:
+        while not text[left].isalpha(): # checks if the character is not a letter
+            left += 1 # skip special character
 
-    if not text[right].isalpha() and text[right] != '': # checks if the character is not a letter
-        return is_palindrome_recursive(text, left, right - 1) # skip special character
+        while not text[right].isalpha(): # checks if the character is not a letter
+            right -= 1 # skip special character
 
-    if text[left].lower() != text[right].lower(): # checks if both character does not match
-        return False # this text is not a palindrome return False
+        if text[left].lower() != text[right].lower(): # checks if both character does not match
+            return False # this text is not a palindrome return False
 
-    return is_palindrome_recursive(text, left + 1, right - 1)
+        return is_palindrome_recursive(text, left + 1, right - 1)
 
 def main():
     import sys
