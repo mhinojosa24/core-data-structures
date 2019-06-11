@@ -51,17 +51,16 @@ def is_palindrome_recursive(text, left=None, right=None):
     if left > right: # you successfully iterated through the text
         return True # text is a palindrome return True
 
-    else:
-        while not text[left].isalpha(): # checks if the character is not a letter
-            left += 1 # skip special character
+    while not text[left].isalpha(): # checks if the character is not a letter
+        left += 1 # skip special character
 
-        while not text[right].isalpha(): # checks if the character is not a letter
-            right -= 1 # skip special character
+    while not text[right].isalpha(): # checks if the character is not a letter
+        right -= 1 # skip special character
 
-        if text[left].lower() != text[right].lower(): # checks if both character does not match
-            return False # this text is not a palindrome return False
+    if text[left].lower() != text[right].lower(): # checks if both character does not match
+        return False # this text is not a palindrome return False
 
-        return is_palindrome_recursive(text, left + 1, right - 1)
+    return is_palindrome_recursive(text, left + 1, right - 1)
 
 def main():
     import sys
