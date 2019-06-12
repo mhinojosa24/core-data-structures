@@ -1,25 +1,25 @@
 #!python
+from importlib import import_module
+python_code = import_module('core-data-structures.helper')
+
+from "core-data-structures.helper" import pattern_search
 
 def contains(text, pattern):
     """Return a boolean indicating whether pattern occurs in text."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
-    len_txt = len(text)
+    text_len = len(text)
 
-    for i in range(0 , len_txt):
-        if pattern[0] == text[i]:
-            window = len(pattern) + 1
-
-        if window > len_txt:
+    for i in range(0, len(text)):
+        window = len(pattern) + i
+        # NOTE: early exit only if the pattern is greater than the lengtgh of 1
+        # checks if the length of the window of characters is less than the pattern
+        if len(text[i:window]) < len(pattern):
             return False
-
         if pattern == text[i:window]:
             return True
     return False
-
-
-
 
 
 def find_index(text, pattern):
@@ -27,7 +27,8 @@ def find_index(text, pattern):
     or None if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    # TODO: Implement find_index here (iteratively and/or recursively)
+    search_result = pattern_search(text, pattern)
+    return search_result
 
 
 def find_all_indexes(text, pattern):
@@ -36,6 +37,7 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement find_all_indexes here (iteratively and/or recursively)
+
 
 
 def test_string_algorithms(text, pattern):

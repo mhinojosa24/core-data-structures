@@ -24,3 +24,21 @@ def find_pattern(text, pattern):
     return result
 
 print(find_pattern('abc', 'z'))
+
+def pattern_search(text: str, pattern: str):
+    text_len = len(text)
+    search_result = []
+    count = 0
+
+    if len(pattern) == 0:
+        return [index for index in range(len(text))]
+
+
+    for i in range(starting_point, len(text)):
+        window = len(pattern) + i
+        # NOTE: early exit checks if the sliced index is less than
+        if len(text[i:window]) < len(pattern):
+            return False
+        if pattern == text[i:window]:
+            search_result.append(i)
+    return search_result
