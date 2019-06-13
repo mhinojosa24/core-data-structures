@@ -8,14 +8,12 @@ def contains(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     # TODO: Implement contains here (iteratively and/or recursively)
+    # best time: O(n) -> n for amount of n
+    # worse time: O(n) -> n for amount of n
     text_len = len(text)
 
     for i in range(0, len(text)):
         window = len(pattern) + i
-        # NOTE: early exit only if the pattern is greater than the lengtgh of 1
-        # checks if the length of the window of characters is less than the pattern
-        if len(text[i:window]) < len(pattern):
-            return False
         if pattern == text[i:window]:
             return True
     return False
@@ -39,6 +37,7 @@ def find_all_indexes(text, pattern):
     or an empty list if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
+
     search_result = pattern_search(text, pattern)
     return search_result
 

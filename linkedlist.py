@@ -88,7 +88,6 @@ class LinkedList(object):
             return self.tail.data
 
         while node is not None:
-
             if curr_index == index:
                 return node.data
 
