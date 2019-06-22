@@ -30,27 +30,26 @@ class LinkedStack(object):
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(1) constant time to create a new node add it to the list with its value"""
-        self.list.append(item)
+        self.list.prepend(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
         if self.list.is_empty() == True:
             return None
-        return self.list.tail.data
+        return self.list.head.data
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(1) constant time to delete node from the tail as
+        Running time: O(1) constant time to delete node from the head as
         to oppose deleting a node from the head"""
         if self.list.is_empty() == True:
             raise ValueError('Oops this array seems to be empty {}'.format(self.list))
         else:
-            item = self.list.tail.data
-            self.list.delete(self.list.tail.data)
+            item = self.list.head.data
+            self.list.delete(self.list.head.data)
             return item
-
 
 # Implement ArrayStack below, then change the assignment at the bottom
 # to use this Stack implementation to verify it passes all tests
@@ -78,7 +77,7 @@ class ArrayStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(n) you would have to shift all the items for empty space to insert item"""
         self.list.insert(0 , item)
 
     def peek(self):
@@ -91,7 +90,7 @@ class ArrayStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) constant time due to search within array"""
         if len(self.list) == 0:
             raise ValueError('Oops this array seems to be empty {}'.format(self.list))
         value = self.list[0]

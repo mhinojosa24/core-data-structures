@@ -82,7 +82,7 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(n) where n is the amount of items that needs to be moved to allocate more space """
         self.list.append(item)
 
     def front(self):
@@ -95,7 +95,7 @@ class ArrayQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(n) where n is the amount of items that needs to be moved"""
 
         if len(self.list) != 0:
             value = self.list[0]
