@@ -25,7 +25,7 @@ class HashTable(object):
 
     def load_factor(self):
         """Return the load factor, the ratio of number of entries to buckets.
-        Best and worst case running time: O(n/m) where n is the number of entries divided by the number of buckets"""
+        Best and worst case running time: O(1) constant time to get size of HashTable"""
         return float(self.size) / len(self.buckets)
 
     def keys(self):
