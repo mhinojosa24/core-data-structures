@@ -53,12 +53,11 @@ class HashTable(object):
 
     def items(self):
         """Return a list of all entries (key-value pairs) in this hash table.
-        Best and worst case running time: O(n^2) where n is the number of buckets and
-        its squared 2 because each bucket has m amount of entries """
+        Best and worst case running time: O(n * l) =>  O(n)"""
         # Collect all pairs of key-value entries in each of the buckets
         all_items = []
-        for bucket in self.buckets:
-            all_items.extend(bucket.items())
+        for bucket in self.buckets:# O(n) where n 
+            all_items.extend(bucket.items())# O(l) for the average length of the bucket
         return all_items
 
     def length(self):
@@ -155,7 +154,7 @@ class HashTable(object):
             new_size = len(self.buckets) / 2  # Half size
 
         current_entries = self.items()
-        self.buckets = [LinkedList() for i in range(int(new_size))]
+        self.__init__(new_size)
         self.size = 0
         for key, value in current_entries:
             self.set(key, value)
