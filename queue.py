@@ -13,6 +13,7 @@ class LinkedQueue(object):
             for item in iterable:
                 self.enqueue(item)
 
+
     def __repr__(self):
         """Return a string representation of this queue."""
         return 'Queue({} items, front={})'.format(self.length(), self.front())

@@ -24,7 +24,7 @@ def find_index(text, pattern):
     or None if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    search_result = pattern_search(text, pattern)
+    search_result = pattern_search(text, pattern) # returns the beginning of each pattern in array
 
     if search_result == []:
         return None
@@ -38,7 +38,7 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
 
-    search_result = pattern_search(text, pattern)
+    search_result = pattern_search(text, pattern)# returns the beginning of each pattern in array
     return search_result
 
 
