@@ -82,7 +82,8 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(n) where n is the amount of items that needs to be moved to allocate more space """
+        Running time: O(n) where n is the amount of items that needs to be moved to allocate more space
+        but adding an item will average it out to O(1) """
         self.list.append(item)
 
     def front(self):

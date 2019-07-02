@@ -78,14 +78,14 @@ class ArrayStack(object):
     def push(self, item):
         """Insert the given item on the top of this stack.
         Running time: O(n) you would have to shift all the items for empty space to insert item"""
-        self.list.insert(0 , item)
+        self.list.append(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
         if len(self.list) == 0:
             return None
-        return self.list[0]
+        return self.list[-1]
 
     def pop(self):
         """Remove and return the item on the top of this stack,
@@ -93,8 +93,9 @@ class ArrayStack(object):
         Running time: O(1) constant time due to search within array"""
         if len(self.list) == 0:
             raise ValueError('Oops this array seems to be empty {}'.format(self.list))
-        value = self.list[0]
-        del self.list[0]
+        value = self.list[-1]
+        del self.list[-1]
+
         return value
 
 

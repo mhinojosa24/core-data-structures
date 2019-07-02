@@ -104,6 +104,7 @@ class ArrayStack(object):
             raise ValueError('Oops the list is empty')
         return value
 
+
 # Implement LinkedStack and ArrayStack above, then change the assignment below
 # to use each of your Stack implementations to verify they each pass all tests
 Stack = LinkedStack
