@@ -26,6 +26,7 @@ class Set(object):
 
     def add(self, element):
         """ add element to this set, if not present already """
+        # O(1) for best case and O(n) worst case if the item is not found
 
         if self.hashset.contains(element) is False:
             self.size += 1
@@ -33,11 +34,13 @@ class Set(object):
 
     def remove(self, element):
         """ remove element from this set, if present, or else raise KeyError """
+        # O(1) constant time to find item and delete
         self.size -= 1
         self.hashset.delete(element)
 
     def union(self, other_set):
         """ return a new set that is the union of this set and other_set """
+        # O(n * m) where n is amount of items in set one and m is the amount of set two
         new_set = Set()
 
         for element in self.hashset.keys():
@@ -50,6 +53,7 @@ class Set(object):
 
     def intersection(self, other_set):
         """ return a new set that is the intersection of this set and other_set """
+        # O(n) where n is the amount of items in set
         new_set = Set()
 
         for element in other_set.hashset.keys():
