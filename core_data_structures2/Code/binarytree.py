@@ -188,6 +188,55 @@ class BinarySearchTree(object):
         # Return in-order list of all items in tree
         return items
 
+    def _traverse_in_order_recursive(self, node, visit):
+        """Traverse this binary tree with recursive in-order traversal (DFS).
+        Start at the given node and visit each node with the given function.
+        Running time: O(1) when the tree is emypty, worst case: O(n) traverse through the whole tree
+        TODO: Memory usage: """
+
+        if node is not None:
+            if node.left is not None:
+                # this method will continuely call its self until node appears to be None
+                self._traverse_in_order_recursive(node.left, visit)
+            # after this method finished, visit function is called to keep track of the nodes order
+            visit(node.data)
+
+            if node.right is not None:
+                # this method will continuely call its self until node appears to be None
+                self._traverse_in_order_recursive(node.right, visit)
+
+    def _traverse_in_order_iterative(self, node, visit):
+        """Traverse this binary tree with iterative in-order traversal (DFS).
+        Start at the given node and visit each node with the given function.
+        TODO: Running time: ??? Why and under what conditions?
+        TODO: Memory usage: ??? Why and under what conditions?"""
+        # TODO: Traverse in-order without using recursion (stretch challenge)
+        stack = Stack()
+        done = False
+
+        # as long this statement is true; continue this while loop
+        while not done:
+            while node is not None: # traverse thought this tree as long the current node is not None
+                stack.push(node) # push this node to the stack
+                node = node.left # traverse through the farthest left child
+            else:
+                # check if the stack is empty; this will notify the we traversed the whole tree
+                if stack.is_empty() is False:
+                    popped_node = stack.pop()
+                    visit(popped_node.data)
+                    node = popped_node.right
+                else:
+                    done = True
+
+    def items_pre_order(self):
+        """Return a pre-order list of all items in this binary search tree."""
+        items = []
+        if not self.is_empty():
+            # Traverse tree pre-order from root, appending each node's item
+            self._traverse_pre_order_iterative(self.root, items.append)
+        # Return pre-order list of all items in tree
+        return items
+
     def _traverse_pre_order_recursive(self, node, visit):
         """Traverse this binary tree with recursive pre-order traversal (DFS).
         Start at the given node and visit each node with the given function.
@@ -283,7 +332,8 @@ class BinarySearchTree(object):
         TODO: Memory usage: ??? Why and under what conditions?"""
         # Create queue to store nodes not yet traversed in level-order
         queue = Queue()
-
+        queue.enqueue(start_node)
+        
         # Loop until queue is empty
         while queue.is_empty() != True:
             node = queue.dequeue() # Dequeue node at front of queue
