@@ -56,13 +56,6 @@ def get_file_lines(filename='/usr/share/dict/words'):
 #         return ' '.join(words)
 
 
-# def is_in_dictionary(word):
-#     # new_word = reorganize_word(word)
-#     new_word = rearrange_words(word)
-#     with open('/usr/share/dict/words', 'r') as f:
-#         data = f.read().lower().split('\n')
-#         print(data[:5])
-
 def jumble_word(word):
   combos = list(permutations(word))
   for i, l in enumerate(combos):
@@ -70,13 +63,13 @@ def jumble_word(word):
   combos = set(combos)
 
 
-  dicto = set(get_file_lines())
-  return combos.intersection(dicto)
+  dict = set(get_file_lines())
+  return combos.intersection(dict)
 
 
 def main():
     word = 'tefon'
-    print(is_in_dictionary(word))
+    print(jumble_word(word))
 
 if __name__ == "__main__":
     main()
