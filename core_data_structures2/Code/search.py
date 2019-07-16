@@ -44,10 +44,10 @@ def binary_search_iterative(array, item):
         if array[middle] == item:
             return middle
 
-        if array[middle] > item:
+        if item < array[middle]:
             right = middle - 1
             
-        if array[middle] < item:
+        if item > array[middle]:
             left = middle + 1
     return None
 
@@ -66,10 +66,10 @@ def binary_search_recursive(array, item, left=None, right=None):
     if array[middle] == item:
         return middle
 
-    elif array[middle] > item:
+    elif item < array[middle]:
         right = middle - 1
         return binary_search_recursive(array, item, left, right)
 
-    elif array[middle] < item:
+    elif item > array[middle]:
         left = middle + 1
         return binary_search_recursive(array, item, left, right)
